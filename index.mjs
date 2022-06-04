@@ -1,15 +1,15 @@
 import fs from 'fs';
 import http from 'http';
 
-// Criar arquivo.txt
+// Ler arquivo.txt
 async function lerArquivo() {
     const texto = await fs.promises.readFile('./arquivo.txt', 'utf-8');
     return texto;
 }
 
-// Adicionar texto no 
+// Adicionar texto no arquivo.txt se não existir o mesmo é criado
 async function adicionarTexto(texto_novo) {
-    await fs.promises.appendFile('./arquivo.txt', '\n' + texto_novo, 'utf-8');
+    await fs.promises.appendFile('./arquivo.txt', texto_novo, 'utf-8');
     return;
 }
 
@@ -25,7 +25,7 @@ const servidor = http.createServer(async (req, res) => {
 
         case 'POST':
             res.write('Adicionado com sucesso \n\n')
-            res.end(await adicionarTexto());
+            res.end(await adicionarTexto(dfghjkl));
             break;
 
         default:
