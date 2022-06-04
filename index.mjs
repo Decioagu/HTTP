@@ -19,12 +19,12 @@ const servidor = http.createServer(async (req, res) => {
 
         switch (method) {
         case 'GET':
-            res.write('Busca com sucesso')
+            res.write('Busca com sucesso \n\n')
             res.end(await lerArquivo());
             break;
 
         case 'POST':
-            res.write('Adicionado com sucesso')
+            res.write('Adicionado com sucesso \n\n')
             res.end(await adicionarTexto());
             break;
 
